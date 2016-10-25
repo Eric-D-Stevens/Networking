@@ -1,0 +1,58 @@
+README - CS 372 Programming Assignment 2
+Eric Stevens
+
+SERVER: ser.c
+
+  compiling: 
+	o compile this code type "gcc -o ser ser.c"
+
+  usage:
+ 	$ ser <SERVER_PORT>
+
+  example:
+	$ ser 5000
+
+  to exit:
+	exit with SIG_INT (^C)
+
+  description: 
+	when the above command is typed the server will wait on the port
+	<SERVER_PORT> for a client to establish connection with it. at
+	this point the server has nothing more to be done to it from the
+	command prompt. all of the control is handed to the client.
+
+
+CLIENT: cli.py
+
+  compiling:
+	no compiling will be done on this python program
+
+  usage:
+
+	To list a directory:
+	$ python cli.py <SERVER_NAME> <SERVER_PORT> -l <DATA_PORT>     
+
+	To retrieve a file:
+	$ python cli.py <SERVER_NAME> <SERVER_PORT> -g <FILE_NAME> <DATA_PORT>     
+        
+  to exit:
+	program exits after each command automatically 
+
+  example:
+
+	To list a directory:
+	$ python cli.py flip2.engr.oregonstate.edu 5000 -l 2150     
+
+	To retrieve a file:
+	$ python cli.py localhost 5555 -g shorttext.txt 5556     
+
+  description:
+	when the above commands are entered the server must already be up and 
+	running. the client program will run and communicate with the server 
+	to achieve the desired command. there are two commands. the -l command
+	will return a list of the servers current working directory. the -g
+	command followed by a file name of a file in the servers current
+	working direcory to the client and it will be saved in the clients 
+	current working directory. if the file requested is one that already
+	exists in the client working directory then the user will be asked if 
+	they want to overwrite the pre existing file.
